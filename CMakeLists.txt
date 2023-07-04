@@ -217,7 +217,7 @@ if(CUDA_FOUND)
         include(${CMAKE_CURRENT_SOURCE_DIR}/cmake/SelectCudaComputeArch.cmake)
 
         CUDA_SELECT_NVCC_ARCH_FLAGS(CUDA_ARCH_FLAGS ${CUDA_ARCHS})
-
+        set(CUDA_NVCC_FLAGS "${CUDA_NVCC_FLAGS} --std c++17")
         set(CUDA_NVCC_FLAGS "${CUDA_NVCC_FLAGS} ${CUDA_ARCH_FLAGS}")
 
         # Fix for some combinations of CUDA and GCC (e.g. under Ubuntu 16.04).

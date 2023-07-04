@@ -66,7 +66,7 @@ COLMAP_ADD_STATIC_LIBRARY(colmap ${COLMAP_SOURCES})
 
 if(CUDA_ENABLED)
     set(CUDA_NVCC_FLAGS "${CUDA_NVCC_FLAGS} --use_fast_math")
-
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++17")
     # Use a separate stream per thread to allow for concurrent kernel execution
     # between multiple threads on the same device.
     set(CUDA_NVCC_FLAGS "${CUDA_NVCC_FLAGS} --default-stream per-thread")
